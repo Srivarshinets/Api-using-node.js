@@ -26,3 +26,7 @@ const Person = mongoose.model('Person', PersonSchema);
 app.get('/', (req, res) => {
   res.send('<h2>Person REST API is running</h2>');
 });
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
