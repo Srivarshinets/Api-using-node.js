@@ -1,0 +1,28 @@
+app.get('/person', async (req, res) => {
+  const people = await Person.find();
+
+  let table = `
+    <h2>People List</h2>
+    <table border="1" cellpadding="5">
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Mobile</th>
+      </tr>
+  `;
+
+  people.forEach(p => {
+    table += `
+      <tr>
+        <td>${p.name}</td>
+        <td>${p.age}</td>
+        <td>${p.gender}</td>
+        <td>${p.mobile}</td>
+      </tr>
+    `;
+  });
+
+  table += '</table>';
+  res.send(table);
+});
