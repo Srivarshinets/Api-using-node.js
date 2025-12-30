@@ -1,0 +1,11 @@
+app.post('/person', async (req, res) => {
+  const person = new Person({
+    name: req.body.name,
+    age: req.body.age,
+    gender: req.body.gender,
+    mobile: req.body.mobile
+  });
+
+  await person.save();
+  res.send('Person created successfully');
+});
